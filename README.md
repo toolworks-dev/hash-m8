@@ -1,2 +1,4 @@
 # hash-m8
-hashm8 secure open-source password generator
+
+A modern, secure, and open-source password generator
+
