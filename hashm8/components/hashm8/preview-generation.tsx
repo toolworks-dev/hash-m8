@@ -1,15 +1,16 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Loader2, Eye, EyeOff } from "lucide-react"
+import { Loader2, Eye, EyeOff, RefreshCw } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 interface PreviewProps {
   isLoading: boolean
   password: string
+  onRegenerate: () => void
 }
 
-export const Preview = ({ isLoading, password }: PreviewProps) => {
+export const Preview = ({ isLoading, password, onRegenerate }: PreviewProps) => {
   const availableTexts = ["Generating secure password...", "Applying entropy...", "Finalizing your password..."]
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
   const [progress, setProgress] = useState(0)
@@ -27,9 +28,9 @@ export const Preview = ({ isLoading, password }: PreviewProps) => {
           clearInterval(interval)
           return 100
         }
-        return prev + 1
+        return prev + 2 // Increased speed
       })
-    }, 15)
+    }, 10)
 
     return () => clearInterval(interval)
   }, [isLoading])
@@ -39,7 +40,7 @@ export const Preview = ({ isLoading, password }: PreviewProps) => {
 
     const interval = setInterval(() => {
       setCurrentTextIndex((prev) => (prev + 1) % availableTexts.length)
-    }, 1000)
+    }, 800) // Slightly faster text change
 
     return () => clearInterval(interval)
   }, [isLoading])
@@ -81,6 +82,13 @@ export const Preview = ({ isLoading, password }: PreviewProps) => {
               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
           </div>
+          <button
+            onClick={onRegenerate}
+            className="mt-2 flex items-center gap-2 text-sm text-blue-500 hover:text-blue-600 transition-colors"
+          >
+            <RefreshCw size={16} />
+            Regenerate Password
+          </button>
         </div>
       )}
     </div>

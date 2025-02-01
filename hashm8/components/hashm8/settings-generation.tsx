@@ -21,7 +21,7 @@ export const SettingsGeneration = ({ settings, onSettingsChange }: SettingsProps
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <UpperCase className="w-4 h-4 text-zinc-500" />
-          <span className="text-sm text-zinc-500">Uppercase Letters</span>
+          <span className="text-sm text-zinc-500">Uppercase Letters (A-Z)</span>
         </div>
         <Switch
           checked={settings.includeUppercase}
@@ -33,7 +33,7 @@ export const SettingsGeneration = ({ settings, onSettingsChange }: SettingsProps
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <LowerCase className="w-4 h-4 text-zinc-500" />
-          <span className="text-sm text-zinc-500">Lowercase Letters</span>
+          <span className="text-sm text-zinc-500">Lowercase Letters (a-z)</span>
         </div>
         <Switch
           checked={settings.includeLowercase}
@@ -45,7 +45,7 @@ export const SettingsGeneration = ({ settings, onSettingsChange }: SettingsProps
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <Hash className="w-4 h-4 text-zinc-500" />
-          <span className="text-sm text-zinc-500">Numbers</span>
+          <span className="text-sm text-zinc-500">Numbers (0-9)</span>
         </div>
         <Switch
           checked={settings.includeNumbers}
@@ -57,7 +57,7 @@ export const SettingsGeneration = ({ settings, onSettingsChange }: SettingsProps
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <Asterisk className="w-4 h-4 text-zinc-500" />
-          <span className="text-sm text-zinc-500">Symbols</span>
+          <span className="text-sm text-zinc-500">Symbols (!@#$%^&*)</span>
         </div>
         <Switch
           checked={settings.includeSymbols}

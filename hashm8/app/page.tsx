@@ -1,6 +1,6 @@
 "use client"
 
-import AICardGeneration from "../components/kokonutui/ai-card-generation"
+import AICardGeneration from "../components/hashm8/password-generator"
 
 export default function SyntheticV0PageForDeployment() {
   return <AICardGeneration />
