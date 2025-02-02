@@ -1,0 +1,12 @@
+services:
+  hashm8:
+    build: .
+    ports:
+      - "3333:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    restart: unless-stopped 
